@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Route from Organization to Donor</title>
+  <style>#map { height: 90vh; width: 100%; }</style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2Tl2NEmqOFM6glE-H4ucsyyNU03Ormk8&callback=initMap" defer></script>
+  <script>
+    let map;
+    function initMap() {
+      const directionsService = new google.maps.DirectionsService();
+      const directionsRenderer = new google.maps.DirectionsRenderer();
+
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 7,
+        center: { lat: 20.5937, lng: 78.9629 }, // India Center
+      });
+      directionsRenderer.setMap(map);
+
+      const request = {
+        origin: "<%= orgAddress %>",
+        destination: "<%= donAddress %>",
+        travelMode: google.maps.TravelMode.DRIVING,
+      };
+
+      directionsService.route(request, function (result, status) {
+        if (status == "OK") {
+          directionsRenderer.setDirections(result);
+        } else {
+          alert("Could not display directions: " + status);
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <h2 style="text-align:center">Route from Organization to Donor</h2>
+  <div id="map"></div>
+</body>
+</html>
