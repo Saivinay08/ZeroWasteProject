@@ -1,51 +1,58 @@
-# 🥗 Food Donation Web App
+# ZeroWasteProject
+## Problem Statement
+Every day, massive quantities of edible food are wasted while millions of people remain food-insecure. This is often due to a lack of coordination between food donors (restaurants, individuals, events) and recipients (NGOs, shelters, etc.). ZeroWaste is a scalable, intelligent web platform designed to bridge this gap using real-time location and managing logistics.
+## Objective
+To develop a centralized food donation and rescue platform that:
+- Minimizes food wastage
+- Empowers real-time connections between donors and receivers
+- Leverages technology to automate pickups and manage logistics
 
-A Node.js and Firebase-based web application that connects **food donors** with **non-profit organizations**. This project aims to minimize food waste by allowing donors to register and offer food or grocery donations to registered organizations.
+##  Key Features
 
----
+###  Donor Panel
+- Register via email
+- Post food availability,quantity
+- Track donation status (Pending → Accepted → Picked → Verified)
 
-## 🌐 Live Demo
+###  Receiver Panel (NGOs / Volunteers)
+- Role-based registration & verification
+- View donations on an interactive map
+- Filter by food type, freshness
+- Accept or request pickups
+- Confirm delivery with optional rating
 
-🚧 *Not deployed yet*  
-(Optional: Add a live link here if you host the app on platforms like Render, Vercel, or Firebase Hosting)
+###  GeoMap Dashboard
+- Google Maps / OpenStreetMap integrated   
+- Live pickup routing using Google Directions API
 
----
+## Tech Stack Used
 
-## 📌 Features
+### Frontend:
+- HTML, CSS, JavaScript
+- EJS (Embedded JavaScript templates)
+  
+### Backend:
+- Node.js
+- Express.js
+  
+### Database:
+- Firebase Realtime Database (for real-time data sync and scalability)
 
-- 🔐 Secure registration and login for **Donors** and **Organizations**
-- 📝 Donation forms for **food** and **grocery**
-- 🧾 History tracking for donations
-- 📧 Firebase Firestore for real-time backend database
-- 🔒 Password encryption using `password-hash`
-- 🖥️ Dynamic UI using EJS templates
+### APIs and Services:
+- Google Maps API (location display)
+- Google Directions API (pickup routing)
+- Firebase Authentication
 
----
+##  Workflow
 
-## ⚙️ Tech Stack
+1. User Registration:  
+   - Donors, receivers register via email/OAuth.
 
-- **Backend**: Node.js, Express.js
-- **Frontend**: HTML, EJS (Embedded JavaScript Templates)
-- **Database**: Firebase Firestore
-- **Authentication**: Session-based login (with `express-session`)
-- **Other Dependencies**:
-  - `firebase-admin`
-  - `body-parser`
-  - `uniqid`
-  - `password-hash`
+2. Food Donation Posting (Donor):  
+   - Enter food details,quantity and donor's address.
 
----
+3. Real-Time Visibility (Receiver):  
+   - Nearby NGOs/volunteers see available donations on a live map with filtering options.
 
-## 🏁 Getting Started
-
-### ✅ Prerequisites
-
-- Node.js and npm installed
-- Firebase project with a service account key
-
-### 📦 Installation
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/Saivinay08/ZeroWasteProject
-   cd ZeroWasteProject
+4. Pickup and Routing:  
+   - Once accepted, live pickup route is shown using Google Directions API.
